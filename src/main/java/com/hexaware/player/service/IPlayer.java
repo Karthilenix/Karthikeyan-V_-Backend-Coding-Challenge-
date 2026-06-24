@@ -15,4 +15,6 @@ public interface IPlayer {
 	public Player updatePlayerById(int playerid,PlayerDTO dto);
 	
 	public void  deletePlayer(int playerid);
+	
+	public Player getPlayerWithHighestMatches();
 }

@@ -51,4 +51,9 @@ public class PlayerDTO {
 	@Size(min=3,max=20)
 	@Pattern(regexp = "^[A-Z][a-zA-Z]*$",message = "Country/State name must start with a capital letter")
 	private String countryname;
+	
+	@NotBlank(message="Team name should not be empty.")
+	@Size(min=2,max=200)
+	@Pattern(regexp = "^[A-Z][a-zA-Z ]*$",message = "Team name must start with a capital letter")
+	private String description;
 }

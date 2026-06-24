@@ -34,4 +34,6 @@ public class Player {
 	private String teamname;
 	
 	private String countryname;
+	
+	private String description;
 }

@@ -34,6 +34,7 @@ public class PlayerService implements IPlayer {
 		ply.setTolmatches(dto.getTolmatches());
 		ply.setTeamname(dto.getTeamname());
 		ply.setCountryname(dto.getCountryname());
+		ply.setDescription(dto.getDescription());;
 		return repo.save(ply);
 	}
 
@@ -57,11 +58,24 @@ public class PlayerService implements IPlayer {
 		ply.setTolmatches(dto.getTolmatches());
 		ply.setTeamname(dto.getTeamname());
 		ply.setCountryname(dto.getCountryname());
+		ply.setDescription(dto.getDescription());
 		return repo.save(ply);
 	}
 
 	@Override
 	public void deletePlayer(int playerid) {
 		repo.deleteById(playerid);	
+	}
+	
+	@Override
+	public Player getPlayerWithHighestMatches() {
+
+	    Player player = repo.findTopByOrderByTolmatchesDesc();
+
+	    if(player == null) {
+	        throw new PlayerNotFoundException("No Players Found");
+	    }
+
+	    return player;
 	}
 }

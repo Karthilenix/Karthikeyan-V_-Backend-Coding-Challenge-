@@ -51,4 +51,10 @@ public class PlayerController {
 		service.deletePlayer(playerid);
 		return "Player deleted";
 	}
+	
+	@GetMapping("/highestmatches")
+	public Player getPlayerWithHighestMatches() {
+
+	    return service.getPlayerWithHighestMatches();
+	}
 }
